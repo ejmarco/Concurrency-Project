@@ -1,16 +1,15 @@
 package main;
 
-import static core.InformationManagement.InformationReader.readJsonFromUrl;
-
 import java.io.IOException;
 
+import core.services.filtermanager.FilterManagerService;
+import core.services.filtermanager.impl.FilterManagerServiceImpl;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 public class main {
+    private static FilterManagerService filterService = new FilterManagerServiceImpl();
+
     public static void main(String[] args) throws IOException, JSONException {
-        JSONObject json = readJsonFromUrl("https://graph.facebook.com/19292868552");
-        System.out.println(json.toString());
-        System.out.println(json.get("id"));
+        filterService.getFilterService(0).execute();
     }
 }

@@ -1,4 +1,4 @@
-package core.InformationManagement;
+package core.services.urlreader.impl;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -8,11 +8,14 @@ import java.io.Reader;
 import java.net.URL;
 import java.nio.charset.Charset;
 
+import core.services.urlreader.URLReaderService;
+import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.oracle.javafx.jmx.json.JSONException;
 
-public class InformationReader {
+public class SniperWallChallengeJSON implements URLReaderService {
+
+    private static final  String url = "https://s3-eu-west-1.amazonaws.com/snipperwall-challenge/socials.json";
 
     private static String readAll(Reader rd) throws IOException {
         StringBuilder sb = new StringBuilder();
@@ -23,15 +26,21 @@ public class InformationReader {
         return sb.toString();
     }
 
-    public static JSONObject readJsonFromUrl(String url) throws IOException, JSONException {
+    @Override
+    public JSONObject readJson() throws IOException {
         InputStream is = new URL(url).openStream();
+        JSONObject json = new JSONObject();
         try {
             BufferedReader rd = new BufferedReader(new InputStreamReader(is, Charset.forName("UTF-8")));
             String jsonText = readAll(rd);
-            JSONObject json = new JSONObject(jsonText);
-            return json;
-        } finally {
+            json = new JSONObject(jsonText);
+        }
+        catch (JSONException e){
+            System.out.println("An error has occurred while creating the JSONObject:\n" + e.getMessage());
+        }
+        finally {
             is.close();
+            return json;
         }
     }
 }
