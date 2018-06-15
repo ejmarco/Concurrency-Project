@@ -10,6 +10,6 @@ public class main {
     private static FilterManagerService filterService = new FilterManagerServiceImpl();
 
     public static void main(String[] args) throws IOException, JSONException {
-        filterService.getFilterService(0).execute();
+        filterService.getFilterService(4).execute();
     }
 }

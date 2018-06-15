@@ -22,7 +22,7 @@ public abstract class AbstractFilterService implements FilterService{
 
     protected JSONArray getSocialsJSON(){
 
-        if(!isDataUpdated()){
+        if(!isSocialsUpdated()){
             LOG.info("Updating socials");
             updateSocials();
         }
@@ -30,7 +30,7 @@ public abstract class AbstractFilterService implements FilterService{
         return socialsJSON;
     }
 
-    private void updateSocials(){
+    private synchronized void updateSocials(){
         try {
             lastUpdated = LocalDate.now();
             socialsJSON = (JSONArray)  jsonService.readJson().get("socials");
@@ -40,7 +40,7 @@ public abstract class AbstractFilterService implements FilterService{
         }
     }
 
-    protected boolean isDataUpdated(){
+    protected synchronized boolean isSocialsUpdated(){
         return !Objects.isNull(lastUpdated) && !LocalDate.now().minusDays(1).isAfter(lastUpdated);
     }
 
