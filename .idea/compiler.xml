@@ -13,7 +13,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Concurrency-Project" target="1.8" />
+      <module name="Concurrency-Project" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>

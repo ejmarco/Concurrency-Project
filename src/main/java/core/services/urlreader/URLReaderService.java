@@ -1,7 +1,6 @@
 package core.services.urlreader;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import org.json.JSONArray;
 
 import java.io.IOException;
 
@@ -10,5 +9,9 @@ public interface URLReaderService {
 
     /**Method to read the JSON from the URL
      * @return the JSON object of the URL */
-    JSONObject readJson() throws IOException;
+    JSONArray getJSON();
+
+    /**Method to track if the information that the client have is updated
+     * @return either if the json that the client have is updated or not*/
+    boolean isSocialsUpdated();
 }

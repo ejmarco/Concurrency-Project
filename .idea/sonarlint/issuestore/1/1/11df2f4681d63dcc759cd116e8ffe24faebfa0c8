@@ -1,0 +1,8 @@
+
+csquid:S00101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(·š†‡
+•%squid:RedundantThrowsDeclarationCheck"aRemove the declaration of thrown exception 'org.json.JSONException' which is a runtime exception.(ÕŠ’Üüÿÿÿÿ
+M
+squid:S106"9Replace this use of System.out or System.err by a logger.(­öˆ
+R
+squid:S106"9Replace this use of System.out or System.err by a logger.(¿‰Ø»ÿÿÿÿÿ
+fsquid:S1223"LRename this method to prevent any misunderstanding or make it a constructor.(ÕŠ’Üüÿÿÿÿ
