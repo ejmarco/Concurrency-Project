@@ -8,6 +8,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
+/**Services that applies the adapter factory pattern*/
 public final class FilterManagerServiceImpl implements FilterManagerService {
 
     private static Map<Integer, FilterService> filterServices;

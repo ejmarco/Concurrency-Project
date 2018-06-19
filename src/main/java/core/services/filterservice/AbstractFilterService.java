@@ -6,6 +6,7 @@ import org.json.JSONArray;
 
 import java.util.logging.Logger;
 
+/**Abstract class to control all filter services*/
 public abstract class AbstractFilterService implements FilterService{
 
     private static final Logger LOG = Logger.getLogger(AbstractFilterService.class.getName());

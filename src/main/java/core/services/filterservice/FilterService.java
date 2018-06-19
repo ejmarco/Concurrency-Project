@@ -9,6 +9,6 @@ public interface FilterService {
      * @return the filtered result as a JSONArray*/
     JSONArray execute();
 
-    /** IMPLEMENTED WITH OSGI Method that will return the number of the selected number, used for managing the filters*/
+    // TODO IMPLEMENTED WITH OSGI Method that will return the number of the selected number, used for managing the filters
     //int getFilterNumber();
 }
