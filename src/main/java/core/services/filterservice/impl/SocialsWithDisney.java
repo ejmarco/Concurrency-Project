@@ -2,6 +2,7 @@ package core.services.filterservice.impl;
 
 import java.util.Objects;
 
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONObject;
 
 import core.services.filterservice.AbstractFilterService;
@@ -23,6 +24,6 @@ public class SocialsWithDisney extends AbstractFilterService {
 
     @Override
     protected boolean filterJSON(JSONObject socialObject) {
-        return socialObject.has(filterKey) && socialObject.get(filterKey).toString().toLowerCase().contains(filterValue);
+        return socialObject.optString(filterKey, StringUtils.EMPTY).toLowerCase().contains(filterValue);
     }
 }

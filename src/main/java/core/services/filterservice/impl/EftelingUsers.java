@@ -1,6 +1,8 @@
 package core.services.filterservice.impl;
 
 import core.services.filterservice.AbstractFilterService;
+
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONObject;
 
 import java.util.Objects;
@@ -22,6 +24,6 @@ public class EftelingUsers extends AbstractFilterService {
 
     @Override
     protected boolean filterJSON(JSONObject socialObject) {
-        return socialObject.has(filterKey) && filterValue.equals(socialObject.get(filterKey));
+        return filterValue.equals(socialObject.optString(filterKey, StringUtils.EMPTY));
     }
 }

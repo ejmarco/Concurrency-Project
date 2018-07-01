@@ -15,7 +15,7 @@ import core.services.urlreader.impl.SniperWallChallengeJSON;
 public abstract class AbstractFilterService implements FilterService, Observer {
 
 
-    private final static Logger LOG = Logger.getLogger(SniperWallChallengeJSON.class);
+    protected final static Logger LOG = Logger.getLogger(SniperWallChallengeJSON.class);
     private static String objectPlaceholder = "Item %d:\nMessage type: %s\nContent: %s\nUser: %s\n";
     private List<JSONObject> filteredData;
 

@@ -2,6 +2,7 @@ package core.services.filterservice.impl;
 
 import java.util.Objects;
 
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONObject;
 
 import core.services.filterservice.AbstractFilterService;
@@ -23,6 +24,6 @@ public class SocialsWithVideoContent extends AbstractFilterService {
 
     @Override
     protected boolean filterJSON(JSONObject socialObject) {
-        return socialObject.has(filterKey) && socialObject.get(filterKey).toString().toUpperCase().endsWith(filterValue);
+        return socialObject.optString(filterKey, StringUtils.EMPTY).toUpperCase().endsWith(filterValue);
     }
 }

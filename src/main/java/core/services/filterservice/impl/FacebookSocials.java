@@ -2,6 +2,7 @@ package core.services.filterservice.impl;
 
 import java.util.Objects;
 
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONObject;
 
 import core.services.filterservice.AbstractFilterService;
@@ -24,6 +25,6 @@ public class FacebookSocials extends AbstractFilterService {
 
     @Override
     protected boolean filterJSON(JSONObject socialObject) {
-        return socialObject.has(filterKey) && filterValue.equals(socialObject.getString(filterKey));
+        return filterValue.equals(socialObject.optString(filterKey, StringUtils.EMPTY));
     }
 }

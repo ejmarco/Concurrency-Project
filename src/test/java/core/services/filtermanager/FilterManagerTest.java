@@ -14,13 +14,13 @@ public class FilterManagerTest {
     private FilterManagerService service = new FilterManagerServiceImpl();
 
     @Test
-    public void shouldReturn7Items() {
+    public void SHOULD_RETURN_7_ITEMS() {
         int value = service.getNumberOfOptions();
         assertEquals(value, 7);
     }
 
     @Test
-    public void shouldReturnEftelingFilter() {
+    public void SHOULD_RETURN_EFTELING_FILTER() {
         FilterService selectedFilter = service.getFilterService(0);
         assertEquals(selectedFilter.getClass(), EftelingUsers.class);
     }
