@@ -1,30 +1,29 @@
 package core.services.filterservice.impl;
 
-import core.services.filterservice.AbstractFilterService;
-import org.json.JSONArray;
+import java.util.Objects;
+
 import org.json.JSONObject;
 
-import java.util.Objects;
+import core.services.filterservice.AbstractFilterService;
 
 public class FacebookSocials extends AbstractFilterService {
 
-    private JSONArray filteredJSON;
+    private static FacebookSocials facebookSocials;
 
-    @Override
-    public JSONArray execute() {
-        if(!super.isSocialsUpdated() || Objects.isNull(filteredJSON)){
-            filterJSON(super.getSocialsJSON());
+    private static final String filterValue = "FACEBOOK_POST";
+    private static final String filterKey = "socialType";
+
+    private FacebookSocials() {}
+
+    public static FacebookSocials getFacebookSocialsFilter(){
+        if(Objects.isNull(facebookSocials)){
+            facebookSocials = new FacebookSocials();
         }
-        return filteredJSON;
+        return facebookSocials;
     }
 
-    private void filterJSON(JSONArray socialsJSON){
-        filteredJSON = new JSONArray();
-        for(int i = 0; i < socialsJSON.length(); i++){
-            JSONObject socialObject = socialsJSON.getJSONObject(i);
-            if("FACEBOOK_POST".equals(socialObject.get("socialType"))){
-                filteredJSON.put(socialObject);
-            }
-        }
+    @Override
+    protected boolean filterJSON(JSONObject socialObject) {
+        return socialObject.has(filterKey) && filterValue.equals(socialObject.getString(filterKey));
     }
 }

@@ -1,5 +1,5 @@
 
-R
-squid:S106"9Replace this use of System.out or System.err by a logger.(½¦ÿÿÿÿÿ
-ßsquid:S1598"ÊThis file "App.java" should be located in "$package" directory, not in "/Users/NCErik/Projects/PersonalProjects/ConcurrencyErik/Concurrency-Project/src/main/resources/archetype-resources/src/main/java".(øú
-lsquid:S00120"WRename this package name to match the regular expression '^[a-z]+(\.[a-z][a-z0-9]*)*$'.(øú
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(½¦ÿÿÿÿÿ8œáœÃÁ,
+æsquid:S1598"ÊThis file "App.java" should be located in "$package" directory, not in "/Users/NCErik/Projects/PersonalProjects/ConcurrencyErik/Concurrency-Project/src/main/resources/archetype-resources/src/main/java".(øú8œáœÃÁ,
+ssquid:S00120"WRename this package name to match the regular expression '^[a-z]+(\.[a-z][a-z0-9]*)*$'.(øú8œáœÃÁ,

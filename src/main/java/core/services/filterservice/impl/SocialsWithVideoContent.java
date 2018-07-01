@@ -1,30 +1,28 @@
 package core.services.filterservice.impl;
 
-import core.services.filterservice.AbstractFilterService;
-import org.json.JSONArray;
+import java.util.Objects;
+
 import org.json.JSONObject;
 
-import java.util.Objects;
+import core.services.filterservice.AbstractFilterService;
 
 public class SocialsWithVideoContent extends AbstractFilterService {
 
-    private JSONArray filteredJSON;
+    private static SocialsWithVideoContent socialsWithVideoContent;
+    private static final String filterValue = "_VIDEO";
+    private static final String filterKey = "socialType";
 
-    @Override
-    public JSONArray execute() {
-        if(!super.isSocialsUpdated() || Objects.isNull(filteredJSON)){
-            filterJSON(super.getSocialsJSON());
+    private SocialsWithVideoContent() {}
+
+    public static SocialsWithVideoContent getSocialsWithVideoContentFilter(){
+        if(Objects.isNull(socialsWithVideoContent)){
+            socialsWithVideoContent = new SocialsWithVideoContent();
         }
-        return filteredJSON;
+        return socialsWithVideoContent;
     }
 
-    private void filterJSON(JSONArray socialsJSON){
-        filteredJSON = new JSONArray();
-        for(int i = 0; i < socialsJSON.length(); i++){
-            JSONObject socialObject = socialsJSON.getJSONObject(i);
-            if(socialObject.get("socialType").toString().endsWith("_VIDEO")){
-                filteredJSON.put(socialObject);
-            }
-        }
+    @Override
+    protected boolean filterJSON(JSONObject socialObject) {
+        return socialObject.has(filterKey) && socialObject.get(filterKey).toString().toUpperCase().endsWith(filterValue);
     }
 }
