@@ -16,13 +16,12 @@ import core.services.task.SniperWallSocialsUpdaterTask;
 import core.services.urlreader.impl.SniperWallChallengeJSON;
 
 import org.apache.log4j.Logger;
-import org.json.JSONException;
 
-public class main {
+public class Main {
     private static FilterManagerService filterService;
     private static final Logger LOG = Logger.getLogger(SniperWallChallengeJSON.class);
 
-    public static void main(String[] args) throws IOException, JSONException {
+    public static void main(String[] args){
         init();
         startProgram();
     }
