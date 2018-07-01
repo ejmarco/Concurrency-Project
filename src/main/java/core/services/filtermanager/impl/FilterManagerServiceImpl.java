@@ -4,13 +4,11 @@ import core.services.filtermanager.FilterManagerService;
 import core.services.filterservice.AbstractFilterService;
 import core.services.filterservice.FilterService;
 import core.services.filterservice.impl.*;
-import core.services.urlreader.URLReaderService;
 import core.services.urlreader.impl.SniperWallChallengeJSON;
 
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 import org.apache.log4j.Logger;
 
@@ -19,7 +17,7 @@ import org.apache.log4j.Logger;
  */
 public final class FilterManagerServiceImpl implements FilterManagerService {
 
-    private final static Logger LOG = Logger.getLogger(SniperWallChallengeJSON.class);
+    private static final Logger LOG = Logger.getLogger(SniperWallChallengeJSON.class);
     private static Map<Integer, AbstractFilterService> filterServices;
 
     static {
@@ -36,17 +34,12 @@ public final class FilterManagerServiceImpl implements FilterManagerService {
 
     public FilterManagerServiceImpl() {
         SniperWallChallengeJSON socialsJSONReader = SniperWallChallengeJSON.getInstance();
+        LOG.debug("Adding all observers from the list");
         filterServices.entrySet()
                 .stream()
                 .map(k -> k.getValue())
                 .forEach(service -> socialsJSONReader.addObserver(service));
 
-    }
-
-    public void init() {
-        SniperWallChallengeJSON socialsJSONReader = SniperWallChallengeJSON.getInstance();
-        AbstractFilterService service = EftelingUsers.getEftelingUsersFilter();
-        socialsJSONReader.addObserver(EftelingUsers.getEftelingUsersFilter());
     }
 
     @Override
