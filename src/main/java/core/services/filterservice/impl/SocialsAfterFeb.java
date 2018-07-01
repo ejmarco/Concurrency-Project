@@ -3,14 +3,12 @@ package core.services.filterservice.impl;
 import core.services.filterservice.AbstractFilterService;
 
 import org.apache.commons.lang3.StringUtils;
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.Objects;
-import java.util.Observable;
 
 public class SocialsAfterFeb extends AbstractFilterService {
 

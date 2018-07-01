@@ -6,14 +6,10 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 import java.net.URL;
-import java.util.List;
 
 import org.json.JSONArray;
-import org.json.JSONObject;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 

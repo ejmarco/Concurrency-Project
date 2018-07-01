@@ -13,11 +13,14 @@ import core.services.filtermanager.impl.FilterManagerServiceImpl;
 import core.services.filterservice.FilterService;
 import core.services.parallelrequest.ParallelRequestService;
 import core.services.task.SniperWallSocialsUpdaterTask;
+import core.services.urlreader.impl.SniperWallChallengeJSON;
 
+import org.apache.log4j.Logger;
 import org.json.JSONException;
 
 public class main {
     private static FilterManagerService filterService;
+    private static final Logger LOG = Logger.getLogger(SniperWallChallengeJSON.class);
 
     public static void main(String[] args) throws IOException, JSONException {
         init();
@@ -55,7 +58,7 @@ public class main {
     private static void executeParallelOption(){
         ExecutorService es = Executors.newCachedThreadPool();
         for(int i = 0; i<20; i++){
-            ParallelRequestService parallelService = new ParallelRequestService(i);
+            ParallelRequestService parallelService = new ParallelRequestService();
             es.execute(parallelService);
         }
         es.shutdown();
@@ -64,12 +67,11 @@ public class main {
             es.awaitTermination(1, TimeUnit.SECONDS);
         }
         catch (InterruptedException e){
-
+            LOG.error("An error has occurred while waiting for all threads to finish");
         }
     }
 
     private static void endProgram(){
-        System.out.println("Program finished correctly");
         System.exit(0);
     }
 
@@ -78,7 +80,7 @@ public class main {
         service.printFilteredItems();
     }
 
-    private synchronized static void scheduleJSONReader(){
+    private static synchronized void scheduleJSONReader(){
 
         Calendar today = Calendar.getInstance();
         today.set(Calendar.HOUR_OF_DAY, 2);

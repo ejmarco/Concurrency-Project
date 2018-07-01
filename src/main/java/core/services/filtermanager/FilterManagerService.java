@@ -1,8 +1,5 @@
 package core.services.filtermanager;
 
-import java.util.Map;
-
-import core.services.filterservice.AbstractFilterService;
 import core.services.filterservice.FilterService;
 
 /**Interface that will manage all FilterServices and will return the selected one*/
