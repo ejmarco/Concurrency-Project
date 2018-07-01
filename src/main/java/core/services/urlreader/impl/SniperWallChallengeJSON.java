@@ -25,8 +25,7 @@ public class SniperWallChallengeJSON extends Observable implements URLReaderServ
     private static final Logger LOG = Logger.getLogger(SniperWallChallengeJSON.class);
     private static SniperWallChallengeJSON instance;
 
-    private SniperWallChallengeJSON() {
-    }
+    private SniperWallChallengeJSON() {}
 
     public static SniperWallChallengeJSON getInstance() {
         if (Objects.isNull(instance)) {
