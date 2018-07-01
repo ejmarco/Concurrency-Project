@@ -1,6 +1,5 @@
 package main;
 
-import java.io.IOException;
 import java.util.Calendar;
 import java.util.Scanner;
 import java.util.Timer;
